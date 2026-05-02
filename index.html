@@ -613,6 +613,7 @@
       .gamespeed-grid,
       .about-grid,
       .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      #testimonial > div { grid-template-columns: 1fr !important; }
       .gamespeed-right { grid-template-columns: 1fr; }
       .session-card { grid-template-columns: 1fr; }
       .hero-stats { gap: 2rem; }
@@ -631,7 +632,7 @@
     <li><a href="#gamespeed">Training</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#sessions">Sessions</a></li>
-    <li><a href="#testimonial">Reviews</a></li>
+    <li><a href="#testimonial">Testimonials</a></li>
     <li><a href="https://docs.google.com/forms/d/1z_lohz1VyOIAGy5BvYcTkubsK-n7TDN9DlDq7H6gF3s/edit" class="nav-cta">Sign Up</a></li>
   </ul>
 </nav>
@@ -781,16 +782,32 @@
 <!-- TESTIMONIAL -->
 <section id="testimonial">
   <div class="section-tag" style="text-align:center">What People Say</div>
-  <div class="quote-mark">"</div>
-  <blockquote>
-    The kind of young man you aim for your kids to look up to. Role model, leader, smart, confident. A few words I think of when mentioning or hearing Kyle's name.<br><br>
-    The deepest amount of caring and love for each individual he has a relationship with. Plays, groups, teams, it doesn't matter — Kyle is thoughtful and passionate about every person he has in his life.<br><br>
-    A constant hunger and unwavering work ethic, to be the very best individual he can be — not only for himself, but for his family and teammates.<br><br>
-    A strong young man of his faith — which carries over into how he treats others within a community.<br><br>
-    I wouldn't want another young man to lead youth athletes. He is everything and more.
-  </blockquote>
-  <div class="quote-author">Coach Beau</div>
-  <div class="quote-title">Founder, Cornwell QB Academy</div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto; text-align: left;">
+    
+    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 2.5rem;">
+      <div style="font-family: var(--font-display); font-size: 4rem; line-height: 0.5; color: var(--orange); opacity: 0.3; margin-bottom: 1rem;">"</div>
+      <blockquote style="font-size: 1rem; margin-bottom: 1.5rem;">
+        The kind of young man you aim for your kids to look up to. Role model, leader, smart, confident. A few words I think of when mentioning or hearing Kyle's name.<br><br>
+        The deepest amount of caring and love for each individual he has a relationship with. Plays, groups, teams, it doesn't matter — Kyle is thoughtful and passionate about every person he has in his life.<br><br>
+        A constant hunger and unwavering work ethic, to be the very best individual he can be — not only for himself, but for his family and teammates.<br><br>
+        A strong young man of his faith — which carries over into how he treats others within a community.<br><br>
+        I wouldn't want another young man to lead youth athletes. He is everything and more.
+      </blockquote>
+      <div class="quote-author">Coach Beau</div>
+      <div class="quote-title">Founder, Cornwell QB Academy</div>
+    </div>
+
+    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 2.5rem;">
+      <div style="font-family: var(--font-display); font-size: 4rem; line-height: 0.5; color: var(--orange); opacity: 0.3; margin-bottom: 1rem;">"</div>
+      <blockquote style="font-size: 1rem; margin-bottom: 1.5rem;">
+        Kyle Tracy is an outstanding leader. He is driven in his future, his academics, his faith, his relationships, and most definitely driven in football. His work ethic is one that inspires. His desire to give back and help his community through work, volunteering, camps, and other activities is just a small fraction of who he truly is.<br><br>
+        I've been lucky enough to know Kyle for 6 years now. His combination of faith, kindness, leadership, and love for sports makes him one of the best people I can think of to start leading the youth — not just as athletes, but as people.
+      </blockquote>
+      <div class="quote-author">Drew Greve</div>
+      <div class="quote-title">University of Wisconsin-Whitewater Commit</div>
+    </div>
+
+  </div>
 </section>
 
 <!-- CONTACT -->
