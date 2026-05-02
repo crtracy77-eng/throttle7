@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Full Throttle Speed Training</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --dark: #111214;
+      --card: #17191c;
+      --border: #2a2d33;
+      --orange: #ff5c00;
+      --orange-dim: #cc4900;
+      --white: #f0ede8;
+      --muted: #8a8f9a;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 2.5rem;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.3rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--orange); }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--orange); }
+
+    .nav-cta {
+      background: var(--orange);
+      color: var(--black) !important;
+      padding: 0.55rem 1.4rem;
+      border-radius: 3px;
+      font-weight: 700 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: #ff7a2e !important; color: var(--black) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 2.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('hero.jpeg');
+      background-size: cover;
+      background-position: center 20%;
+      z-index: 0;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(10,10,10,0.92) 45%, rgba(10,10,10,0.4) 100%),
+        linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 40%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      border: 1px solid var(--orange);
+      padding: 0.3rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(3.8rem, 10vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--orange);
+      display: block;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-sub strong { color: var(--white); }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--black);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.2rem;
+      border-radius: 3px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: #ff7a2e; transform: translateY(-2px); }
+
+    .btn-secondary {
+      display: inline-block;
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.2rem;
+      border-radius: 3px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .btn-secondary:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+      animation: fadeUp 0.6s 0.4s ease both;
+      flex-wrap: wrap;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 2.8rem;
+      color: var(--orange);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 2.5rem; }
+
+    .section-tag {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── GAME SPEED ── */
+    #gamespeed {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gamespeed-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .gamespeed-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .gs-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .gs-card:hover { border-color: var(--orange); }
+
+    .gs-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .gs-card h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.4rem;
+    }
+
+    .gs-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ── ABOUT ── */
+    #about { max-width: 1100px; margin: 0 auto; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-badge-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-top: 2rem;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+
+    .about-text p strong { color: var(--white); }
+
+    .college-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.7rem 1.2rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-top: 1.5rem;
+    }
+
+    .college-badge span { color: var(--orange); }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .about-photo-wrap { position: relative; }
+
+    .about-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      background: linear-gradient(to top, rgba(255,92,0,0.15) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    /* ── COLLAGE ── */
+    .collage-wrap {
+      max-width: 860px;
+      margin: 0 auto 4rem;
+      text-align: center;
+    }
+
+    .collage-img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    /* ── SESSIONS ── */
+    #sessions {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sessions-inner { max-width: 1100px; margin: 0 auto; }
+
+    .session-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .session-card:hover { border-color: var(--orange); transform: translateY(-3px); }
+
+    .session-label {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+
+    .session-card h3 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .session-meta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .meta-item strong { color: var(--white); }
+
+    /* ── TESTIMONIAL ── */
+    #testimonial { max-width: 860px; margin: 0 auto; text-align: center; }
+
+    .quote-mark {
+      font-family: var(--font-display);
+      font-size: 8rem;
+      line-height: 0.5;
+      color: var(--orange);
+      opacity: 0.3;
+      margin-bottom: 1rem;
+    }
+
+    blockquote {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--white);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .quote-author {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .quote-title {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 1rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item:hover { color: var(--orange); }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .cta-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .cta-box h3 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .cta-box p { color: var(--muted); margin-bottom: 2rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 2.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .footer-logo span { color: var(--orange); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: var(--orange);
+      margin-bottom: 2rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .gamespeed-grid,
+      .about-grid,
+      .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .gamespeed-right { grid-template-columns: 1fr; }
+      .session-card { grid-template-columns: 1fr; }
+      .hero-stats { gap: 2rem; }
+      section { padding: 4rem 1.5rem; }
+      nav { padding: 1rem 1.5rem; }
+      #hero { padding: 7rem 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Full <span>Throttle</span></a>
+  <ul>
+    <li><a href="#gamespeed">Training</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#sessions">Sessions</a></li>
+    <li><a href="#testimonial">Reviews</a></li>
+    <li><a href="https://docs.google.com/forms/d/1z_lohz1VyOIAGy5BvYcTkubsK-n7TDN9DlDq7H6gF3s/edit" class="nav-cta">Sign Up</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Now Enrolling · 7th &amp; 8th Grade Athletes</div>
+    <h1>Train Fast.<br><em>Play Faster.</em></h1>
+    <p class="hero-sub">
+      <strong>Full Throttle Speed Training</strong> develops the game speed that shows up when it counts —
+      explosive acceleration, sharp cuts, and the confidence to dominate your sport.
+    </p>
+    <div class="hero-actions">
+      <a href="https://docs.google.com/forms/d/1z_lohz1VyOIAGy5BvYcTkubsK-n7TDN9DlDq7H6gF3s/edit" class="btn-primary">Sign Up Now</a>
+      <a href="#about" class="btn-secondary">Meet Your Coach</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">7–8</div>
+        <div class="stat-label">Grade Focused</div>
+      </div>
+      <div>
+        <div class="stat-num">2×</div>
+        <div class="stat-label">All-State Coach</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Athlete-First</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAME SPEED -->
+<section id="gamespeed">
+  <div class="gamespeed-grid">
+    <div>
+      <div class="section-tag">What We Train</div>
+      <h2>What Is Game Speed?</h2>
+      <div class="divider"></div>
+      <p class="section-lead">
+        Game speed is the ability to move fast in <em>real sports situations</em> — not just in a straight line.
+        It's how quickly an athlete reacts, changes direction, accelerates, and makes decisions while the play is actually happening.
+      </p>
+      <p style="color: var(--muted); font-size: 1rem;">
+        True game speed shows up in every sport — football, soccer, baseball, basketball, track, and more.
+        It's the difference between being fast in drills and being fast <strong style="color: var(--white)">when the game is on the line.</strong>
+      </p>
+    </div>
+    <div class="gamespeed-right">
+      <div class="gs-card">
+        <div class="gs-icon">⚡</div>
+        <h3>Acceleration</h3>
+        <p>Explosive first-step quickness off the line or at the snap.</p>
+      </div>
+      <div class="gs-card">
+        <div class="gs-icon">🔄</div>
+        <h3>Change of Direction</h3>
+        <p>Sharp cuts and pivots that leave defenders behind.</p>
+      </div>
+      <div class="gs-card">
+        <div class="gs-icon">🧠</div>
+        <h3>Reaction Time</h3>
+        <p>Reading the play and moving before others even see it.</p>
+      </div>
+      <div class="gs-card">
+        <div class="gs-icon">💪</div>
+        <h3>Confidence</h3>
+        <p>The mental edge that turns good athletes into great ones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="about-photo-wrap" style="margin-bottom: 1.5rem;">
+        <img src="about.jpeg" alt="Kyle Tracy in action" class="about-photo" />
+      </div>
+      <div class="section-tag">Your Coach</div>
+      <h2>Kyle Tracy</h2>
+      <div class="divider"></div>
+      <div class="about-badge-list">
+        <div class="badge">2× Football Captain</div>
+        <div class="badge">2× All-State</div>
+        <div class="badge">2× District MVP</div>
+        <div class="badge">2024 Newcomer of the Year</div>
+        <div class="badge">2025 Mr. IA Football</div>
+        <div class="badge">Soccer Captain</div>
+      </div>
+      <div class="college-badge">⬆ Headed to <span>Saint John's University</span> (MN)</div>
+    </div>
+    <div class="about-text">
+      <p>
+        My name is Kyle Tracy, and sports have shaped a huge part of my life — but they're only one piece of who I am.
+        I love coaching younger athletes and sharing what I've learned — <strong>not just about training, but about effort, attitude, and how to carry yourself.</strong>
+      </p>
+      <p>
+        I bring energy, positivity, and a lot of smiles to every session. My goal is to make training fun, challenging, and meaningful
+        so every athlete leaves better than they came.
+      </p>
+      <p>
+        I focus on helping athletes move better, react faster, and build the kind of quick acceleration and
+        change-of-direction skills that show up in every sport.
+        <strong>No matter what they play, my goal is to help them become more explosive, more controlled, and more confident.</strong>
+      </p>
+      <p>
+        Most of all, I want to build real relationships with these kids. When athletes know someone believes in them,
+        they grow faster and stay motivated. I care about their success on the field and who they become off of it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SESSIONS -->
+<section id="sessions">
+  <div class="sessions-inner">
+    <div class="section-tag">Get Started</div>
+    <h2>Upcoming Sessions</h2>
+    <div class="divider"></div>
+    <p class="section-lead">Small groups, tailored training, and a coach who shows up for every athlete.</p>
+    <div class="session-card">
+      <div>
+        <div class="session-label">Session 1</div>
+        <h3>7th &amp; 8th Grade Speed Training</h3>
+        <div class="session-meta">
+          <div class="meta-item">📍 <strong>Scott Park</strong></div>
+          <div class="meta-item">🎓 <strong>Grades 7–8</strong></div>
+          <div class="meta-item">🏃 <strong>All Sports Welcome</strong></div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/forms/d/1z_lohz1VyOIAGy5BvYcTkubsK-n7TDN9DlDq7H6gF3s/edit" class="btn-primary">Register Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- COLLAGE -->
+<section style="padding: 4rem 2.5rem 0;">
+  <div class="collage-wrap">
+    <div class="section-tag" style="text-align:center; margin-bottom: 1.5rem;">By The Numbers</div>
+    <img src="collage.jpeg" alt="Kyle Tracy highlights and stats" class="collage-img" />
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section id="testimonial">
+  <div class="section-tag" style="text-align:center">What People Say</div>
+  <div class="quote-mark">"</div>
+  <blockquote>
+    The kind of young man you aim for your kids to look up to. Role model, leader, smart, confident.
+    Kyle has the deepest amount of caring and love for each individual he has a relationship with.
+    A constant hunger and unwavering work ethic to be the very best — not only for himself, but for his family and teammates.
+    I wouldn't want another young man to lead youth athletes. He is everything and more.
+  </blockquote>
+  <div class="quote-author">Coach Beau</div>
+  <div class="quote-title">Founder, Cornwell QB Academy</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-tag">Get In Touch</div>
+      <h2>Ready to Train?</h2>
+      <div class="divider"></div>
+      <p style="color: var(--muted); margin-bottom: 1rem;">
+        Questions about sessions, scheduling, or training? Reach out directly — Kyle responds personally to every message.
+      </p>
+      <div class="contact-info">
+        <a href="tel:3193831059" class="contact-item">
+          <div class="contact-icon">📞</div>
+          319-383-1059
+        </a>
+        <a href="mailto:Kyletra12@gmail.com" class="contact-item">
+          <div class="contact-icon">✉️</div>
+          Kyletra12@gmail.com
+        </a>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          Scott Park · Iowa
+        </div>
+      </div>
+    </div>
+    <div class="cta-box">
+      <h3>Spots Are Limited</h3>
+      <p>Sessions fill up fast. Lock in your athlete's spot today and start building the game speed that sets them apart.</p>
+      <a href="https://docs.google.com/forms/d/1z_lohz1VyOIAGy5BvYcTkubsK-n7TDN9DlDq7H6gF3s/edit" class="btn-primary" style="display:inline-block; width: 100%; text-align: center;">Sign Up Here</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Full <span>Throttle</span> Speed Training</div>
+  <p>© 2025 Full Throttle Speed Training · Kyle Tracy</p>
+  <p style="font-size:0.8rem;">319-383-1059 · Kyletra12@gmail.com</p>
+</footer>
+
+</body>
+</html>
