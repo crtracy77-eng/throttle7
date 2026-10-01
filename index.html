@@ -506,6 +506,66 @@
       margin-top: 0.3rem;
     }
 
+    /* ── SESSION NOTE ── */
+    .session-note {
+      margin-top: 1.2rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 60ch;
+    }
+
+    /* ── RESULTS ── */
+    .results-inner { max-width: 1100px; margin: 0 auto; }
+
+    .results-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2.5rem 0 1.5rem;
+    }
+
+    .results-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .result-big, .result-small {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .result-big { border-left: 4px solid var(--orange); }
+
+    .result-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .result-big .result-num { font-size: clamp(3.5rem, 9vw, 6rem); color: var(--orange); }
+    .result-small .result-num { font-size: clamp(2.4rem, 5vw, 3.2rem); }
+    .result-num small { font-size: 0.45em; margin-left: 0.1em; }
+
+    .result-label {
+      margin-top: 0.6rem;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* ── GROUP PHOTO ── */
+    .group-photo {
+      display: block;
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto 3rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
     /* ── CONTACT ── */
     #contact {
       background: var(--dark);
@@ -613,9 +673,9 @@
       .gamespeed-grid,
       .about-grid,
       .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      #testimonial > div { grid-template-columns: 1fr !important; }
       .gamespeed-right { grid-template-columns: 1fr; }
       .session-card { grid-template-columns: 1fr; }
+      .results-feature, .results-row { grid-template-columns: 1fr; }
       .hero-stats { gap: 2rem; }
       section { padding: 4rem 1.5rem; }
       nav { padding: 1rem 1.5rem; }
@@ -632,8 +692,9 @@
     <li><a href="#gamespeed">Training</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#sessions">Sessions</a></li>
-    <li><a href="#testimonial">Testimonials</a></li>
-    <li><a href="https://docs.google.com/forms/d/1z_lohz1VyOIAGy5BvYcTkubsK-n7TDN9DlDq7H6gF3s/edit" class="nav-cta">Sign Up</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#testimonial">Reviews</a></li>
+    <li><a href="mailto:Kyletra12@gmail.com?subject=Spring%202027%20Speed%20Training%20updates&amp;body=Athlete%20name%3A%0AGrade%3A%0ASport(s)%3A%0A" class="nav-cta">Get Updates</a></li>
   </ul>
 </nav>
 
@@ -641,19 +702,20 @@
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-tag">Now Enrolling · 7th &amp; 8th Grade Athletes</div>
-    <h1>GAMESPEED Training<br><em>for Future Champions.</em></h1>
+    <div class="hero-tag">Spring 2027 Sessions Coming Soon</div>
+    <h1>Train Fast.<br><em>Play Faster.</em></h1>
     <p class="hero-sub">
-      <strong>Full Throttle Training</strong> is committed to enhancing the game speed of young local athletes through tailored training sessions that align with individual goals and needs. Join us to take YOUR skills to the next level.
+      <strong>Full Throttle Speed Training</strong> develops the game speed that shows up when it counts —
+      explosive acceleration, sharp cuts, and the confidence to dominate your sport.
     </p>
     <div class="hero-actions">
-      <a href="https://docs.google.com/forms/d/1z_lohz1VyOIAGy5BvYcTkubsK-n7TDN9DlDq7H6gF3s/edit" class="btn-primary">Sign Up Now</a>
+      <a href="mailto:Kyletra12@gmail.com?subject=Spring%202027%20Speed%20Training%20updates&amp;body=Athlete%20name%3A%0AGrade%3A%0ASport(s)%3A%0A" class="btn-primary">Get Spring Updates</a>
       <a href="#about" class="btn-secondary">Meet Your Coach</a>
     </div>
     <div class="hero-stats">
       <div>
-        <div class="stat-num">7–8</div>
-        <div class="stat-label">Grade Focused</div>
+        <div class="stat-num">26</div>
+        <div class="stat-label">Athletes Trained Summer 2026</div>
       </div>
       <div>
         <div class="stat-num">2×</div>
@@ -675,10 +737,12 @@
       <h2>What Is Game Speed?</h2>
       <div class="divider"></div>
       <p class="section-lead">
-        Game speed is the ability to move fast in real sports situations, not just when running in a straight line. It's how quickly an athlete reacts, changes direction, accelerates, and makes decisions while the play is actually happening.
+        Game speed is the ability to move fast in <em>real sports situations</em> — not just in a straight line.
+        It's how quickly an athlete reacts, changes direction, accelerates, and makes decisions while the play is actually happening.
       </p>
       <p style="color: var(--muted); font-size: 1rem;">
-        True game speed shows up in every sport — football, soccer, baseball, basketball, track, and more — because it's about being explosive, controlled, and confident when it matters most. <strong style="color: var(--white)">It's the difference between being fast in drills and being fast when the game is on the line.</strong>
+        True game speed shows up in every sport — football, soccer, baseball, basketball, track, and more.
+        It's the difference between being fast in drills and being fast <strong style="color: var(--white)">when the game is on the line.</strong>
       </p>
     </div>
     <div class="gamespeed-right">
@@ -724,26 +788,25 @@
         <div class="badge">2025 Mr. IA Football</div>
         <div class="badge">Soccer Captain</div>
       </div>
-      <div class="college-badge">⬆ Headed to <span>Saint John's University</span> (MN)</div>
+      <div class="college-badge">🏈 Quarterback at <span>Saint John's University</span> (MN)</div>
     </div>
     <div class="about-text">
       <p>
-        My name is Kyle Tracy, and I'm a rising freshman at Saint John's University (MN). I've been a 2x Football Captain, 2x All-State, 2x District MVP, 2024 Newcomer of the Year, 2025 Mr. IA Football, and a soccer captain. <strong>Sports have shaped a huge part of my life, but they're only one piece of who I am.</strong>
+        My name is Kyle Tracy, and sports have shaped a huge part of my life — but they're only one piece of who I am.
+        I love coaching younger athletes and sharing what I've learned — <strong>not just about training, but about effort, attitude, and how to carry yourself.</strong>
       </p>
       <p>
-        I love coaching younger athletes and sharing what I've learned — not just about training, but about effort, attitude, and how to carry yourself. I bring energy, positivity, and a lot of smiles to every session. My goal is to make training fun, challenging, and meaningful so every athlete leaves better than they came.
+        I bring energy, positivity, and a lot of smiles to every session. My goal is to make training fun, challenging, and meaningful
+        so every athlete leaves better than they came.
       </p>
       <p>
-        My mission is to help build the next generation of athletes by turning hard-working kids into confident, future champions. I want every athlete who trains with me to feel supported, challenged, and proud of the progress they make.
+        I focus on helping athletes move better, react faster, and build the kind of quick acceleration and
+        change-of-direction skills that show up in every sport.
+        <strong>No matter what they play, my goal is to help them become more explosive, more controlled, and more confident.</strong>
       </p>
       <p>
-        I focus on helping athletes move better, react faster, and build the kind of quick acceleration and change-of-direction skills that show up in every sport. <strong>No matter what they play, my goal is to help them become more explosive, more controlled, and more confident in their abilities.</strong>
-      </p>
-      <p>
-        Most of all, I want to build real relationships with these kids. When athletes know someone believes in them, they grow faster and stay motivated. I care about their success on the field and who they become off of it.
-      </p>
-      <p>
-        I'm passionate about this work, and I'm committed to helping every athlete reach their full potential. My mission is simple: <strong>build better athletes and better people.</strong>
+        Most of all, I want to build real relationships with these kids. When athletes know someone believes in them,
+        they grow faster and stay motivated. I care about their success on the field and who they become off of it.
       </p>
     </div>
   </div>
@@ -752,38 +815,56 @@
 <!-- SESSIONS -->
 <section id="sessions">
   <div class="sessions-inner">
-    <div class="section-tag">Get Started</div>
+    <div class="section-tag">What's Next</div>
     <h2>Upcoming Sessions</h2>
     <div class="divider"></div>
-    <p class="section-lead">Small groups, tailored training, and a coach who shows up for every athlete.</p>
-
-    <div class="session-card" style="margin-bottom: 1.5rem; opacity: 0.6; position: relative; overflow: hidden;">
-      <div style="position: absolute; top: 1.2rem; right: 1.2rem; background: #cc0000; color: white; font-family: var(--font-display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 3px; z-index: 2;">SOLD OUT</div>
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(-45deg, transparent, transparent 8px, rgba(204,0,0,0.45) 8px, rgba(204,0,0,0.45) 11px); pointer-events: none; z-index: 1;"></div>
-      <div>
-        <div class="session-label">Session 1 · 11:00 AM – 12:00 PM</div>
-        <h3>7th &amp; 8th Grade Speed Training</h3>
-        <div class="session-meta">
-          <div class="meta-item">📍 <strong>Scott Park</strong></div>
-          <div class="meta-item">🎓 <strong>Grades 7–8</strong></div>
-          <div class="meta-item">🏃 <strong>All Sports Welcome</strong></div>
-        </div>
-      </div>
-      <div style="background: #cc0000; color: white; font-family: var(--font-display); font-weight: 700; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 1rem 2.2rem; border-radius: 3px; text-align: center;">SOLD OUT</div>
-    </div>
-
+    <p class="section-lead">Summer 2026 is a wrap. Stay tuned for upcoming sessions in Spring 2027.</p>
     <div class="session-card">
       <div>
-        <div class="session-label">Session 2 · 12:00 PM – 1:00 PM</div>
-        <h3>7th &amp; 8th Grade Speed Training</h3>
+        <div class="session-label">Spring 2027</div>
+        <h3>Speed Training</h3>
         <div class="session-meta">
           <div class="meta-item">📍 <strong>Scott Park</strong></div>
-          <div class="meta-item">🎓 <strong>Grades 7–8</strong></div>
+          <div class="meta-item">📅 <strong>Dates Coming Soon</strong></div>
           <div class="meta-item">🏃 <strong>All Sports Welcome</strong></div>
-          <div class="meta-item">⚠️ <strong style="color: var(--orange);">Limited Availability</strong></div>
         </div>
+        <p class="session-note">Want to hear first when dates and registration open? Email Kyle with your athlete's name, grade, and sport, and you'll be on the list.</p>
       </div>
-      <a href="https://docs.google.com/forms/d/1z_lohz1VyOIAGy5BvYcTkubsK-n7TDN9DlDq7H6gF3s/edit" class="btn-primary">Register Now</a>
+      <a href="mailto:Kyletra12@gmail.com?subject=Spring%202027%20Speed%20Training%20updates&amp;body=Athlete%20name%3A%0AGrade%3A%0ASport(s)%3A%0A" class="btn-primary">Get Spring Updates</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="results-inner">
+    <div class="section-tag">Summer 2026</div>
+    <h2>The Results</h2>
+    <div class="divider"></div>
+    <p class="section-lead">26 athletes trained with Full Throttle this summer. Athletes were timed in the 5-10-5 shuttle and the 20-yard dash at the start and end of the training cycle.</p>
+    <div class="results-feature">
+      <div class="result-big">
+        <div class="result-num">0.14<small>s</small></div>
+        <div class="result-label">Average time dropped in the 5-10-5 shuttle</div>
+      </div>
+      <div class="result-big">
+        <div class="result-num">0.20<small>s</small></div>
+        <div class="result-label">Average time dropped in the 20-yard dash</div>
+      </div>
+    </div>
+    <div class="results-row">
+      <div class="result-small">
+        <div class="result-num">88%</div>
+        <div class="result-label">of athletes tested got faster</div>
+      </div>
+      <div class="result-small">
+        <div class="result-num">82%</div>
+        <div class="result-label">dropped 0.10s or more in at least one drill</div>
+      </div>
+      <div class="result-small">
+        <div class="result-num">59%</div>
+        <div class="result-label">dropped 0.10s or more in both drills</div>
+      </div>
     </div>
   </div>
 </section>
@@ -799,32 +880,16 @@
 <!-- TESTIMONIAL -->
 <section id="testimonial">
   <div class="section-tag" style="text-align:center">What People Say</div>
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto; text-align: left;">
-    
-    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 2.5rem;">
-      <div style="font-family: var(--font-display); font-size: 4rem; line-height: 0.5; color: var(--orange); opacity: 0.3; margin-bottom: 1rem;">"</div>
-      <blockquote style="font-size: 1rem; margin-bottom: 1.5rem;">
-        The kind of young man you aim for your kids to look up to. Role model, leader, smart, confident. A few words I think of when mentioning or hearing Kyle's name.<br><br>
-        The deepest amount of caring and love for each individual he has a relationship with. Plays, groups, teams, it doesn't matter — Kyle is thoughtful and passionate about every person he has in his life.<br><br>
-        A constant hunger and unwavering work ethic, to be the very best individual he can be — not only for himself, but for his family and teammates.<br><br>
-        A strong young man of his faith — which carries over into how he treats others within a community.<br><br>
-        I wouldn't want another young man to lead youth athletes. He is everything and more.
-      </blockquote>
-      <div class="quote-author">Coach Beau</div>
-      <div class="quote-title">Founder, Cornwell QB Academy</div>
-    </div>
-
-    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 2.5rem;">
-      <div style="font-family: var(--font-display); font-size: 4rem; line-height: 0.5; color: var(--orange); opacity: 0.3; margin-bottom: 1rem;">"</div>
-      <blockquote style="font-size: 1rem; margin-bottom: 1.5rem;">
-        Kyle Tracy is an outstanding leader. He is driven in his future, his academics, his faith, his relationships, and most definitely driven in football. His work ethic is one that inspires. His desire to give back and help his community through work, volunteering, camps, and other activities is just a small fraction of who he truly is.<br><br>
-        I've been lucky enough to know Kyle for 6 years now. His combination of faith, kindness, leadership, and love for sports makes him one of the best people I can think of to start leading the youth — not just as athletes, but as people.
-      </blockquote>
-      <div class="quote-author">Drew Greve</div>
-      <div class="quote-title">University of Wisconsin-Whitewater Commit</div>
-    </div>
-
-  </div>
+  <img src="summer-2026-group.jpeg" alt="Full Throttle athletes with Coach Kyle, summer 2026" class="group-photo" />
+  <div class="quote-mark">"</div>
+  <blockquote>
+    The kind of young man you aim for your kids to look up to. Role model, leader, smart, confident.
+    Kyle has the deepest amount of caring and love for each individual he has a relationship with.
+    A constant hunger and unwavering work ethic to be the very best — not only for himself, but for his family and teammates.
+    I wouldn't want another young man to lead youth athletes. He is everything and more.
+  </blockquote>
+  <div class="quote-author">Coach Beau</div>
+  <div class="quote-title">Founder, Cornwell QB Academy</div>
 </section>
 
 <!-- CONTACT -->
@@ -850,16 +915,12 @@
           <div class="contact-icon">📍</div>
           Scott Park · Iowa
         </div>
-        <a href="https://twitter.com/Kyle_Tracy12" target="_blank" class="contact-item">
-          <div class="contact-icon">𝕏</div>
-          @Kyle_Tracy12
-        </a>
       </div>
     </div>
     <div class="cta-box">
-      <h3>Spots Are Limited</h3>
-      <p>Sessions fill up fast. Lock in your athlete's spot today and start building the game speed that sets them apart.</p>
-      <a href="https://docs.google.com/forms/d/1z_lohz1VyOIAGy5BvYcTkubsK-n7TDN9DlDq7H6gF3s/edit" class="btn-primary" style="display:inline-block; width: 100%; text-align: center;">Sign Up Here</a>
+      <h3>Spring 2027 Is Coming</h3>
+      <p>Spring dates aren't set yet. Send Kyle a quick email and you'll hear first when registration opens.</p>
+      <a href="mailto:Kyletra12@gmail.com?subject=Spring%202027%20Speed%20Training%20updates&amp;body=Athlete%20name%3A%0AGrade%3A%0ASport(s)%3A%0A" class="btn-primary" style="display:inline-block; width: 100%; text-align: center;">Get Spring Updates</a>
     </div>
   </div>
 </section>
@@ -867,8 +928,8 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">Full <span>Throttle</span> Speed Training</div>
-  <p>© 2025 Full Throttle Speed Training · Kyle Tracy</p>
-  <p style="font-size:0.8rem;">319-383-1059 · Kyletra12@gmail.com · <a href="https://twitter.com/Kyle_Tracy12" target="_blank" style="color: var(--orange); text-decoration: none;">@Kyle_Tracy12</a></p>
+  <p>© 2026 Full Throttle Speed Training · Kyle Tracy</p>
+  <p style="font-size:0.8rem;">319-383-1059 · Kyletra12@gmail.com</p>
 </footer>
 
 </body>
